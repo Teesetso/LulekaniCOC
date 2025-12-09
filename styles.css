@@ -375,6 +375,67 @@ body {
   margin: 3px 0;
   border-radius: 2px;
 }
+/* NAVBAR FIX */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+/* HAMBURGER BUTTON */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 2000;
+}
+
+.hamburger span {
+  width: 30px;
+  height: 4px;
+  background: #ffa726;
+  margin: 5px 0;
+  border-radius: 3px;
+}
+
+/* NAV LINKS */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+/* MOBILE MODE */
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: rgba(0,0,0,0.9);
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    padding: 20px;
+    width: 200px;
+    border-radius: 12px;
+    text-align: right;
+    gap: 15px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+}
+
 
 
 
