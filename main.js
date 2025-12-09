@@ -44,3 +44,6 @@ function toggleMenu() {
   const nav = document.querySelector(".nav-links");
   nav.classList.toggle("show");
 }
+function toggleMenu() {
+  document.querySelector(".nav-links").classList.toggle("show");
+}
