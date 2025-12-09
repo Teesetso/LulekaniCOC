@@ -215,7 +215,7 @@ p  { font-size: 18px; }
   text-align: center;
 }
 
-.about-header h1 {
+.about-header h1,p {
   font-size: 36px;
   color: #df0606;
   margin-bottom: 10px;
@@ -338,4 +338,5 @@ p  { font-size: 18px; }
 /* Fix overlapping content */
 body { padding-top: 100px; }
 @media (max-width: 768px) { body { padding-top: 80px; } }
+
 
