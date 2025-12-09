@@ -728,3 +728,108 @@
   margin-bottom: 25px;
   line-height: 1.6;
 }
+/* Hamburger icon default hidden */
+.hamburger {
+  display: none;
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
+}
+
+/* MOBILE VIEW */
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: block;
+    z-index: 1000;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    right: 20px;
+    top: 70px;
+    background: rgba(0,0,0,0.8);
+    padding: 15px 20px;
+    border-radius: 12px;
+    gap: 15px;
+    width: 200px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li a {
+    color: white;
+    font-size: 18px;
+  }
+}
+/* GENERAL MOBILE RESPONSIVENESS */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Make sections stack properly */
+section {
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  padding: 0 10px;
+}
+
+/* Text sizing for mobile */
+@media (max-width: 768px) {
+  h1 { font-size: 26px; }
+  h2 { font-size: 22px; }
+  p  { font-size: 16px; }
+
+  /* Buttons */
+  .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+}
+@media (max-width: 768px) {
+  .row, .columns {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+/* FIX LOCATION PAGE BACKGROUND */
+.location-full {
+  background-attachment: fixed;
+}
+
+/* FIX MOBILE NAVBAR ONLY FOR LOCATION PAGE */
+@media (max-width: 768px) {
+  .site-header1 .nav-links {
+    display: none;             
+    flex-direction: column;    
+    background: rgba(0,0,0,0.85);
+    position: absolute;
+    right: 20px;
+    top: 70px;
+    padding: 15px 20px;
+    border-radius: 12px;
+    gap: 15px;
+    width: 200px;
+  }
+
+  .site-header1 .nav-links.show {
+    display: flex;
+  }
+}
+
+  .location-card {
+    width: 95%;
+    padding: 25px;
+  }
+
+  .location-card h1 {
+    font-size: 28px;
+  }
