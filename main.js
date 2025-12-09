@@ -40,3 +40,7 @@ aboutContent.addEventListener('scroll', () => {
   dots.forEach(dot => dot.classList.remove('active'));
   if(dots[index]) dots[index].classList.add('active');
 });
+function toggleMenu() {
+  const nav = document.querySelector(".nav-links");
+  nav.classList.toggle("show");
+}
