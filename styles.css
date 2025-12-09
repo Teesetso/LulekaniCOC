@@ -515,15 +515,8 @@ body {
     padding: 10px 20px;
   }
 }
-body {
-  padding-top: 100px; /* space for fixed navbar */
-}
 
-@media (max-width: 768px) {
-  body {
-    padding-top: 80px;
-  }
-}
+
 
 
 
