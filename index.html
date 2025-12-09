@@ -10,52 +10,51 @@
 </head>
 <body>
 
-  <header class="site-header">
-    <nav class="navbar">
+ <header class="site-header">
+  <nav class="navbar">
 
-      <!-- Logo -->
+    <!-- Logo -->
+    <a href="#home" class="logo">
+      <img src="picture/logo.png" alt="Church Logo">
+    </a>
 
-<nav class="navbar">
-<a href="#home" class="logo">
-  <img src="picture/logo.png" alt="Church Logo">
-</a>
-  <!-- Hamburger Button -->
-  <div class="hamburger" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+    <!-- Hamburger Button -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
-  <ul class="nav-links">
+    <!-- Navigation Links -->
+    <ul class="nav-links" id="nav-links">
       <li><a href="#">HOME</a></li>
       <li><a href="#about-section">ABOUT</a></li>
       <li><a href="#service">SERVICES</a></li>
       <li><a href="#contact-details">CONTACT</a></li>
       <li><a href="Location.html">LOCATION</a></li>
-  </ul>
+    </ul>
 
-</nav>
+  </nav>
 
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-text1">
+      <h2>Welcome to Lulekani Church Of Christ</h2>
+      <p>Where faith grows, love unites, and Jesus is the center of all we do.</p>
 
-    <!-- Hero Section -->
-    <section id="hero"
-    class="hero">
-      <div class="hero-text1">
-        <h2>Welcome to Lulekani Church Of Christ</h2>
-        <p>Where faith grows, love unites, and Jesus is the center of all we do.</p>
+      <div class="hero-text2">
+        <p>All the Churches of Christ salute you</p>
+        <p>(Romans 16:16)</p>
 
-        <div class="hero">
-          <div class="hero-text2">
-            <p>All the Churches of Christ salute you</p>
-            <p>(Romans 16:16)</p>
-        
-         <div class="button">
-          <button onclick="window.location.href='LOCATION.html'">Visit Us</button>
+        <div class="button">
+          <button onclick="window.location.href='Location.html'">Visit Us</button>
         </div>
+      </div>
 
-          </div>
+    </div>
+  </section>
 
-  </header>
+</header>
 
   <!-- Services -->
   <section id="service"
@@ -202,3 +201,4 @@
 
 </body>
 </html>
+
