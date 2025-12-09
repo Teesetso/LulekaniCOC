@@ -435,6 +435,87 @@ body {
     display: flex;
   }
 }
+/* About Section Horizontal Scroll */
+@media (max-width: 768px) {
+  .about-content {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding: 10px 0 20px;
+  }
+
+  .about-block {
+    flex: 0 0 90%;          /* take 90% width of viewport */
+    scroll-snap-align: center;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+
+  /* Hide scrollbar */
+  .about-content::-webkit-scrollbar {
+    display: none;
+  }
+  .about-content {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+/* Hamburger button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 35px;
+  height: 28px;
+  position: fixed;  /* fixed so always reachable */
+  top: 20px;
+  right: 20px;
+  z-index: 2000;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: #ffa726;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Show only on mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;        /* slide-in menu */
+    top: 0;
+    right: -100%;           /* hidden initially */
+    height: 100vh;
+    width: 70%;
+    background: rgba(0,0,0,0.95);
+    flex-direction: column;
+    padding-top: 80px;
+    gap: 25px;
+    transition: 0.4s ease;
+    z-index: 1500;
+  }
+
+  .nav-links.show {
+    right: 0;  /* slide in */
+  }
+
+  .nav-links li a {
+    font-size: 18px;
+    color: white;
+    text-align: right;
+    padding: 10px 20px;
+  }
+}
+
 
 
 
