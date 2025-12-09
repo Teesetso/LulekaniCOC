@@ -80,7 +80,7 @@ section, .container {
 .hamburger {
   display: none;
   font-size: 32px;
-  color: white;
+  color: black;
   cursor: pointer;
 }
 
@@ -340,4 +340,27 @@ section, .container {
   text-align: center;
   color: white;
 }
+/* Fix overlapping content */
+body {
+  padding-top: 120px;
+}
+
+/* Make hamburger icon visible */
+.burger span {
+  background: #ffa726;  
+}
+
+/* Ensure burger shows on mobile */
+@media (max-width: 768px) {
+  .burger {
+    display: flex;
+  }
+  .nav-links {
+    display: none;
+  }
+  .nav-links.show {
+    display: flex;
+  }
+}
+
 
