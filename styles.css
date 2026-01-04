@@ -242,26 +242,29 @@ p  { font-size: 18px; }
 }
 
 @media (max-width: 768px) {
+/* Mobile horizontal scroll for About */
+@media (max-width: 768px) {
   .about-content {
     display: flex;
-    flex-wrap: nowrap;       /* Keeps all 6 blocks in one single horizontal row */
-    overflow-x: auto;        /* Allows swiping left and right */
-    scroll-snap-type: x mandatory; 
-    gap: 15px;               /* Space between cards */
-    padding: 20px;           /* Prevents cards from touching the screen edges */
+    flex-wrap: nowrap;      /* FORCES them into one row */
+    overflow-x: auto;       /* Enables the swipe */
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    padding: 20px;
     width: 100%;
-    -webkit-overflow-scrolling: touch; /* Smooth swiping on mobile */
+    -webkit-overflow-scrolling: touch;
   }
 
   .about-block {
     /* flex: grow | shrink | basis */
-    flex: 0 0 85%;           /* 0 shrink: This is the magic line that stops the cutting */
+    flex: 0 0 85%;          /* The middle 0 is the FIX: it stops the "squashing" */
+    min-width: 85%;         /* Ensures the box stays wide enough to read */
     scroll-snap-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    height: auto;            /* Let the height adjust to the text content */
+    background: white;
+    margin: 0 auto;
   }
 
-  /* Hide the ugly scrollbar but keep the swipe working */
+  /* Keep the swipe working but hide the scrollbar */
   .about-content::-webkit-scrollbar {
     display: none;
   }
@@ -270,15 +273,7 @@ p  { font-size: 18px; }
     scrollbar-width: none;
   }
 }
-  .about-block {
-    flex: 0 0 90%;
-    scroll-snap-align: center;
-    margin: 0 auto;
-  }
 
-  .about-content::-webkit-scrollbar {
-    display: none;
-  }
 /* --------------------------------------------------
    CONTACT SECTION
 -------------------------------------------------- */
@@ -351,6 +346,7 @@ p  { font-size: 18px; }
 /* Fix overlapping content */
 body { padding-top: 100px; }
 @media (max-width: 768px) { body { padding-top: 80px; } }
+
 
 
 
