@@ -241,15 +241,18 @@ p  { font-size: 18px; }
   transform: translateY(-8px);
 }
 
-/* Mobile horizontal scroll for About */
 @media (max-width: 768px) {
   .about-content {
     flex-wrap: nowrap;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 20px;
-    padding-bottom: 20px;
+    gap: 15px; 
+    padding: 0 20px 20px 20px; /* Adds space at the start and end of the scroll */
+    width: 100%;
+    -webkit-overflow-scrolling: touch; /* Makes scrolling smooth on iPhones */
   }
+}
+
 
   .about-block {
     flex: 0 0 90%;
@@ -338,6 +341,7 @@ p  { font-size: 18px; }
 /* Fix overlapping content */
 body { padding-top: 100px; }
 @media (max-width: 768px) { body { padding-top: 80px; } }
+
 
 
 
