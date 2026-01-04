@@ -243,17 +243,33 @@ p  { font-size: 18px; }
 
 @media (max-width: 768px) {
   .about-content {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 15px; 
-    padding: 0 20px 20px 20px; /* Adds space at the start and end of the scroll */
+    display: flex;
+    flex-wrap: nowrap;       /* Keeps all 6 blocks in one single horizontal row */
+    overflow-x: auto;        /* Allows swiping left and right */
+    scroll-snap-type: x mandatory; 
+    gap: 15px;               /* Space between cards */
+    padding: 20px;           /* Prevents cards from touching the screen edges */
     width: 100%;
-    -webkit-overflow-scrolling: touch; /* Makes scrolling smooth on iPhones */
+    -webkit-overflow-scrolling: touch; /* Smooth swiping on mobile */
+  }
+
+  .about-block {
+    /* flex: grow | shrink | basis */
+    flex: 0 0 85%;           /* 0 shrink: This is the magic line that stops the cutting */
+    scroll-snap-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    height: auto;            /* Let the height adjust to the text content */
+  }
+
+  /* Hide the ugly scrollbar but keep the swipe working */
+  .about-content::-webkit-scrollbar {
+    display: none;
+  }
+  .about-content {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
-
-
   .about-block {
     flex: 0 0 90%;
     scroll-snap-align: center;
@@ -263,12 +279,6 @@ p  { font-size: 18px; }
   .about-content::-webkit-scrollbar {
     display: none;
   }
-  .about-content {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-}
-
 /* --------------------------------------------------
    CONTACT SECTION
 -------------------------------------------------- */
@@ -341,6 +351,7 @@ p  { font-size: 18px; }
 /* Fix overlapping content */
 body { padding-top: 100px; }
 @media (max-width: 768px) { body { padding-top: 80px; } }
+
 
 
 
