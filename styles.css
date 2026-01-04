@@ -215,7 +215,7 @@ p  { font-size: 18px; }
   text-align: center;
 }
 
-.about-header h1,{
+.about-header h1 {
   font-size: 36px;
   color: #df0606;
   margin-bottom: 10px;
@@ -241,13 +241,12 @@ p  { font-size: 18px; }
   transform: translateY(-8px);
 }
 
-@media (max-width: 768px) {
-/* Mobile horizontal scroll for About */
+/* --- MOBILE SCROLL FIX --- */
 @media (max-width: 768px) {
   .about-content {
-    display: flex;
-    flex-wrap: nowrap;      /* FORCES them into one row */
-    overflow-x: auto;       /* Enables the swipe */
+    display: flex !important;
+    flex-wrap: nowrap !important; /* Forces items into one long horizontal row */
+    overflow-x: auto !important;  /* Enables swiping */
     scroll-snap-type: x mandatory;
     gap: 15px;
     padding: 20px;
@@ -256,23 +255,17 @@ p  { font-size: 18px; }
   }
 
   .about-block {
-    /* flex: grow | shrink | basis */
-    flex: 0 0 85%;          /* The middle 0 is the FIX: it stops the "squashing" */
-    min-width: 85%;         /* Ensures the box stays wide enough to read */
+    flex: 0 0 85% !important;     /* FIX: 0 shrink stops the "cut in half" look */
+    min-width: 85% !important;    /* Forces the card to stay wide */
     scroll-snap-align: center;
     background: white;
-    margin: 0 auto;
   }
 
-  /* Keep the swipe working but hide the scrollbar */
   .about-content::-webkit-scrollbar {
     display: none;
   }
-  .about-content {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
 }
+
 
 /* --------------------------------------------------
    CONTACT SECTION
@@ -346,6 +339,7 @@ p  { font-size: 18px; }
 /* Fix overlapping content */
 body { padding-top: 100px; }
 @media (max-width: 768px) { body { padding-top: 80px; } }
+
 
 
 
