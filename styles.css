@@ -340,6 +340,24 @@ p  { font-size: 18px; }
 body { padding-top: 100px; }
 @media (max-width: 768px) { body { padding-top: 80px; } }
 
+.rotate-hint {
+    display: none;
+    text-align: center;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #2c3e50;
+    background: #eef2f3;
+    padding: 10px;
+    border-radius: 6px;
+    margin: 10px 0;
+}
+
+/* Show ONLY on cellphones */
+@media screen and (max-width: 480px) and (orientation: portrait) {
+    .rotate-hint {
+        display: block;
+    }
+}
 
 
 
