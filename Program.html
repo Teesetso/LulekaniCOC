@@ -1,0 +1,232 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Church Service Program</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 20px; background-color: #f4f7f6; color: #333; }
+        .container { max-width: 1100px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        
+        .header-section { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 20px; border-bottom: 2px solid #2c3e50; padding-bottom: 20px; }
+        .church-logo { width: 120px; height: auto; margin-bottom: 10px; }
+        h1 { margin: 0; color: #2c3e50; font-size: 2em; text-transform: uppercase; }
+        .scripture { font-style: italic; color: #7f8c8d; font-weight: bold; }
+
+        .top-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 10px; }
+        .update-info { font-size: 0.85em; color: #e67e22; font-weight: bold; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #2c3e50; color: white; text-transform: uppercase; font-size: 0.8em; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+
+        /* Buttons */
+        button { cursor: pointer; border: none; border-radius: 4px; padding: 8px 12px; transition: 0.3s; font-weight: bold; }
+        .btn-edit { background-color: #3498db; color: white; margin-right: 5px; }
+        .btn-delete { background-color: #e74c3c; color: white; }
+        .btn-add { background-color: #27ae60; color: white; width: 100%; margin-top: 10px; padding: 12px; }
+        .btn-login { background-color: #2c3e50; color: white; }
+        .btn-logout { background-color: #95a5a6; color: white; float: right; margin-bottom: 10px; }
+        .btn-download { background-color: #2c3e50; color: white; display: flex; align-items: center; gap: 5px; }
+
+        /* Admin & Login Boxes */
+        #adminControls { display: none; background: #fff3cd; padding: 20px; border-radius: 8px; margin-top: 30px; border: 1px solid #ffeeba; }
+        .login-box { text-align: center; margin-top: 30px; padding: 20px; background: #eee; border-radius: 8px; border: 1px solid #ccc; }
+        .input-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+        input { padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        
+        .actions-cell { display: none; }
+
+        /* Mobile Responsive View */
+        @media screen and (max-width: 768px) {
+            table, thead, tbody, th, td, tr { display: block; }
+            thead tr { position: absolute; top: -9999px; left: -9999px; }
+            tr { border: 1px solid #ccc; margin-bottom: 15px; border-radius: 8px; padding: 10px; background: #fff !important; }
+            td { border: none; position: relative; padding-left: 50% !important; text-align: right; border-bottom: 1px solid #eee; }
+            td:last-child { border-bottom: 0; }
+            td:before { content: attr(data-label); position: absolute; left: 10px; width: 45%; padding-right: 10px; white-space: nowrap; text-align: left; font-weight: bold; color: #2c3e50; }
+        }
+
+        @media print { 
+            .no-print, .btn-logout, #adminControls, .login-box, .btn-download { display: none !important; } 
+            body { background: white; margin: 0; }
+            .container { box-shadow: none; border: none; padding: 0; width: 100%; max-width: 100%; }
+            table { font-size: 10pt; }
+            th { background-color: #2c3e50 !important; color: white !important; -webkit-print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <button id="logoutBtn" class="btn-logout no-print" onclick="logout()" style="display:none;">Logout Admin</button>
+    
+    <div class="header-section">
+        <img src="picture/logo.png" alt="Church Logo" class="church-logo">
+        <div class="scripture">MAT 16:16-18</div>
+        <h1>Church Service Program</h1>
+    </div>
+
+    <div class="top-row no-print">
+        <div id="lastUpdated" class="update-info">Last Updated: Loading...</div>
+        <button class="btn-download" onclick="window.print()">
+            <span>🖨️</span> Download / Print PDF
+        </button>
+    </div>
+
+    <table id="programTable">
+        <thead>
+            <tr>
+                <th>NO</th>
+                <th>DATE</th>
+                <th>PROG DIRECTOR</th>
+                <th>SERMON/DEVOTION</th>
+                <th>LORD'S SUPPER</th>
+                <th>MAJEJE ATTENDANT & BIBLE STUDY</th>
+                <th id="actionHeader" class="actions-cell no-print">ACTIONS</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+
+    <div id="adminControls" class="no-print">
+        <h3>Admin: Manage Program Entries</h3>
+        <div class="input-group">
+            <input type="text" id="date" placeholder="Date">
+            <input type="text" id="director" placeholder="Prog Director">
+            <input type="text" id="sermon" placeholder="Sermon/Devotion">
+            <input type="text" id="supper" placeholder="Lord's Supper">
+            <input type="text" id="majeje" placeholder="Majeje & Bible Study">
+        </div>
+        <button class="btn-add" id="submitBtn" onclick="addRow()">Add to Program</button>
+    </div>
+
+    <div id="loginSection" class="login-box no-print">
+        <p style="margin-top:0;"><strong>Admin Login</strong></p>
+        <input type="text" id="user" placeholder="Username">
+        <input type="password" id="pass" placeholder="Password">
+        <button class="btn-login" onclick="login()">Login</button>
+    </div>
+</div>
+
+<script>
+    const ADMIN_USER = "admin";
+    const ADMIN_PASS = "church2026";
+    let editIndex = null;
+    let isLoggedIn = false;
+
+    document.addEventListener('DOMContentLoaded', renderTable);
+
+    function login() {
+        const u = document.getElementById('user').value;
+        const p = document.getElementById('pass').value;
+        if(u === ADMIN_USER && p === ADMIN_PASS) {
+            isLoggedIn = true;
+            document.getElementById('adminControls').style.display = 'block';
+            document.getElementById('loginSection').style.display = 'none';
+            document.getElementById('logoutBtn').style.display = 'block';
+            document.getElementById('actionHeader').style.display = 'table-cell';
+            renderTable();
+        } else {
+            alert("Wrong credentials.");
+        }
+    }
+
+    function renderTable() {
+        const data = JSON.parse(localStorage.getItem('churchData')) || [];
+        const lastUpd = localStorage.getItem('churchTime') || "None";
+        const tbody = document.getElementById('tableBody');
+        
+        document.getElementById('lastUpdated').innerText = "Last Updated: " + lastUpd;
+        tbody.innerHTML = "";
+
+        data.forEach((item, index) => {
+            let actionButtons = '';
+            if (isLoggedIn) {
+                actionButtons = `
+                <td class="no-print actions-cell" style="display: table-cell;" data-label="ACTIONS">
+                    <button class="btn-edit" onclick="openEdit(${index})">Edit</button>
+                    <button class="btn-delete" onclick="deleteRow(${index})">Delete</button>
+                </td>`;
+            }
+
+            tbody.innerHTML += `<tr>
+                <td data-label="NO">${index + 1}</td>
+                <td data-label="DATE">${item.date}</td>
+                <td data-label="PROG DIRECTOR">${item.director}</td>
+                <td data-label="SERMON/DEVOTION">${item.sermon}</td>
+                <td data-label="LORD'S SUPPER">${item.supper}</td>
+                <td data-label="MAJEJE & BIBLE STUDY">${item.majeje}</td>
+                ${actionButtons}
+            </tr>`;
+        });
+    }
+
+    function openEdit(index) {
+        const data = JSON.parse(localStorage.getItem('churchData'));
+        const item = data[index];
+        
+        document.getElementById('date').value = item.date;
+        document.getElementById('director').value = item.director;
+        document.getElementById('sermon').value = item.sermon;
+        document.getElementById('supper').value = item.supper;
+        document.getElementById('majeje').value = item.majeje;
+        
+        editIndex = index;
+        const addBtn = document.getElementById('submitBtn');
+        addBtn.innerText = "Save Changes";
+        addBtn.style.backgroundColor = "#f39c12";
+        
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function addRow() {
+        const date = document.getElementById('date').value;
+        const director = document.getElementById('director').value;
+        const sermon = document.getElementById('sermon').value;
+        const supper = document.getElementById('supper').value;
+        const majeje = document.getElementById('majeje').value;
+
+        if(!date) return alert("Please enter a date.");
+
+        let data = JSON.parse(localStorage.getItem('churchData')) || [];
+
+        if (editIndex !== null) {
+            data[editIndex] = { date, director, sermon, supper, majeje };
+            editIndex = null;
+            document.getElementById('submitBtn').innerText = "Add to Program";
+            document.getElementById('submitBtn').style.backgroundColor = "#27ae60";
+        } else {
+            data.push({ date, director, sermon, supper, majeje });
+        }
+
+        localStorage.setItem('churchData', JSON.stringify(data));
+        localStorage.setItem('churchTime', new Date().toLocaleString());
+        
+        clearInputs();
+        renderTable();
+    }
+
+    function deleteRow(index) {
+        if(confirm("Are you sure you want to delete this row?")) {
+            let data = JSON.parse(localStorage.getItem('churchData'));
+            data.splice(index, 1);
+            localStorage.setItem('churchData', JSON.stringify(data));
+            localStorage.setItem('churchTime', new Date().toLocaleString());
+            renderTable();
+        }
+    }
+
+    function clearInputs() {
+        document.querySelectorAll('#adminControls input').forEach(i => i.value = "");
+    }
+    
+    function logout() {
+        isLoggedIn = false;
+        location.reload(); 
+    }
+</script>
+
+</body>
+</html>
