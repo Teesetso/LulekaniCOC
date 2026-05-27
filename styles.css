@@ -358,6 +358,17 @@ body { padding-top: 100px; }
         display: block;
     }
 }
+@media (max-width: 768px) {
+  .about-content {
+    /* Fixes the flexbox bug that cuts off the left side of "Who We Are" */
+    justify-content: flex-start !important; 
+  }
+
+  .about-block {
+    /* Changes snapping from center to start so cards line up perfectly on the left */
+    scroll-snap-align: start !important; 
+  }
+}
 
 
 
