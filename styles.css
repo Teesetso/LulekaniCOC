@@ -741,7 +741,14 @@ footer p {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .nav-links {
+    gap: 10px; /* Pulls links slightly closer on medium screens */
+  }
+  .nav-links li a {
+    font-size: 13px; /* Slightly smaller text only when screen space is tight */
+  }
+}
 
 
 
