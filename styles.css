@@ -2,6 +2,9 @@
 /* --------------------------------------------------
    GLOBAL STYLES 
 -------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -710,7 +713,34 @@ footer p {
     grid-template-columns: 1fr;
   }
 }
+.hero-text1 h2 {
+  font-size: 36px;
+  font-weight: 700; /* Extra bold for the main title */
+  color: #ffffff;
+  margin-bottom: 12px;
+}
 
+.hero-text1 > p {
+  font-size: 16px;
+  font-weight: 400; /* Lighter weight for balance */
+  color: #cbd5e1; /* Soft gray instead of stark white */
+  max-width: 550px;
+  margin: 0 auto 15px;
+}
+.hero-text2 p:first-of-type {
+  font-size: 16px;
+  font-style: italic;
+  color: #f1c40f; /* Match your signature yellow accent */
+  font-weight: 500;
+}
+
+.hero-text2 p:last-of-type {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 
 
 
