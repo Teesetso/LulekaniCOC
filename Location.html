@@ -5,52 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Location & Services — Church Of Christ</title>
   <link rel="stylesheet" href="styles.css">
-  <style>
-    /* Simple styling just to make your preview neat */
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f7f7f7; }
-    .site-header { background: white; padding: 10px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    .navbar { display: flex; align-items: center; justify-content: space-between; }
-    .nav-links { list-style: none; display: flex; gap: 20px; }
-    .nav-links a { text-decoration: none; font-weight: bold; color: #333; }
-
-    .location-full { padding: 40px 20px; display: flex; justify-content: center; }
-    .location-card { background: white; padding: 30px; border-radius: 10px; max-width: 900px; width: 100%; }
-    .location-card h1 { margin-bottom: 10px; }
-    .location-info h3 { margin-top: 20px; }
-
-    .service-box { background: #fafafa; padding: 15px; border-left: 4px solid #444; margin-top: 10px; border-radius: 5px; }
-    .time { font-weight: bold; color: #444; }
-
-    .location-contact { background: white; padding: 30px; margin: 20px; border-radius: 10px; }
-    .social-buttons { margin-top: 10px; display: flex; gap: 15px; }
-
-    .social-btn { padding: 10px 15px; border-radius: 5px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px; }
-    .whatsapp-btn { background: #e9ffe9; border: 1px solid #25D366; }
-    .facebook-btn { background: #eef3ff; border: 1px solid #1877f2; }
-
-    .social-btn img { width: 20px; height: 20px; }
-  </style>
-<style>
-/* Darker theme */
-body { background:#f0f2f5; }
-.location-card { background:white; border-radius:15px; padding:20px; box-shadow:0 5px 20px rgba(0,0,0,0.1); }
-.social-btn img { width:22px; height:22px; vertical-align:middle; margin-right:8px; }
-
-/* Mobile responsive */
-@media (max-width:768px){
-  .navbar ul { flex-direction:column; gap:10px; }
-  .location-card, .location-contact { width:100%; padding:15px; }
-  iframe { height:250px; }
-}
-</style>
+  <!-- Unified Google Fonts linking -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="location-body">
 
-  <!-- Navbar -->
+  <!-- Clean, Unified Transparent Header matching index.html -->
   <header class="site-header1">
     <nav class="navbar">
       <a href="index.html" class="logo">
-        <img src="picture/logo.png" alt="Church Logo" height="50">
+        <img src="picture/logo.png" alt="Church Logo">
       </a>
 
       <ul class="nav-links">
@@ -61,7 +27,7 @@ body { background:#f0f2f5; }
   </header>
 
   <!-- LOCATION SECTION -->
-  <section class="location-full">
+  <main class="location-full">
     <div class="location-card">
 
       <h1>Find Us — Lulekani Church Of Christ</h1>
@@ -69,77 +35,95 @@ body { background:#f0f2f5; }
         We are located in Lulekani, Phalaborwa — a welcoming place to worship and grow spiritually.
       </p>
 
-      <!-- Address -->
-<section class="location-info">
-  <h3>📍 Lulekani-A, Phalaborwa, 1392</h3>
-  <iframe
-    src="https://www.google.com/maps?q=-23.8745000,31.0742500&z=15&output=embed"
-    width="100%"
-    height="300"
-    style="border:0;"
-    loading="lazy">
-  </iframe>
-  <a class="directions-btn" 
-     href="https://www.google.com/maps/dir/?api=1&destination=-23.8745000,31.0742500" 
-     target="_blank">
-    Get Directions
-  </a>
-</section>
-
-
-
-
-      <!-- SERVICES SECTION -->
-      <section class="location-services" id="service">
-        <h3>⛪ Our Services</h3>
-
-        <div class="service-box">
-          <h4>Sunday Service</h4>
-          <p>Singing, prayer, teaching, giving, and the Lord's Supper.</p>
-          <p class="time">Sunday at 11:00 AM</p>
+      <!-- Map & Directions View Card -->
+      <section class="location-info">
+        <h3>📍 Lulekani-A, Phalaborwa, 1392</h3>
+        
+        <!-- Helpful device prompt for map navigation -->
+        <div class="rotate-hint">🔄 On cellphones, view in landscape orientation for an expansive map view.</div>
+        
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps?q=-23.8745000,31.0742500&z=15&output=embed"
+            width="100%"
+            height="350"
+            style="border:0;"
+            loading="lazy">
+          </iframe>
         </div>
-
-        <div class="service-box">
-          <h4>Sunday School</h4>
-          <p>Children learn God’s word and grow in faith.</p>
-          <p class="time">Sunday at 09:00 AM</p>
+        
+        <div class="button">
+          <button onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=-23.8745000,31.0742500', '_blank')">
+            Get Directions
+          </button>
         </div>
-
-        <div class="service-box">
-          <h4>Wednesday Bible Study</h4>
-          <p>Midweek study and encouragement in the scriptures.</p>
-          <p class="time">Wednesday at 5:00 PM</p>
-        </div>
-
-        <div class="service-box">
-          <h4>Friday Bible Study</h4>
-          <p>Evening study and fellowship in God’s Word.</p>
-          <p class="time">Friday at 5:00 PM</p>
-        </div>
-
       </section>
 
-  <!-- Contact -->
-<div class="location-contact">
-  <h3> Contact Details</h3>
+      <!-- SERVICES SUB-SECTION -->
+      <section class="location-services" id="service">
+        <h2>⛪ Our Services</h2>
 
-  <p><img src="https://img.icons8.com/ios-filled/20/ffffff/phone.png"/> 
-    <a href="tel:+27603912081">📞060 391 2081 :MR MKHABELE</a>
-  </p>
-   <p><img src="https://img.icons8.com/ios-filled/20/ffffff/phone.png"/> 
-    <a href="tel:+27786880676">📞078 688 0676 :Mr MALATJIE</a>
-  </p>
- 
-  <div class="social-buttons">
-    <a href="https://wa.me/0603912081" target="_blank" class="social-btn whatsapp-btn">
-      <img src="https://img.icons8.com/ios-filled/20/ffffff/whatsapp.png"/> WhatsApp
-    </a>
+        <div class="location-services-grid">
+          <div class="service-box">
+            <h4>Sunday Service</h4>
+            <p>Singing, prayer, teaching, giving, and the Lord's Supper.</p>
+            <p class="time">Sunday at 11:00 AM</p>
+          </div>
 
-    <a href="https://www.facebook.com/groups/440857125928379" target="_blank" class="social-btn facebook-btn">
-      <img src="https://img.icons8.com/ios-filled/20/ffffff/facebook-new.png"/> Facebook
-    </a>
-  </div>
-</div>
+          <div class="service-box">
+            <h4>Sunday School</h4>
+            <p>Children learn God’s word and grow in faith.</p>
+            <p class="time">Sunday at 09:00 AM</p>
+          </div>
+
+          <div class="service-box">
+            <h4>Wednesday Bible Study</h4>
+            <p>Midweek study and encouragement in the scriptures.</p>
+            <p class="time">Wednesday at 5:00 PM</p>
+          </div>
+
+          <div class="service-box">
+            <h4>Friday Bible Study</h4>
+            <p>Evening study and fellowship in God’s Word.</p>
+            <p class="time">Friday at 5:00 PM</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Inner Contact Segment -->
+      <section class="location-contact">
+        <h3>Contact Details</h3>
+
+        <div class="contact-container">
+          <div class="contact-item">
+            <img src="https://img.icons8.com/ios-filled/24/000000/phone.png" alt="Phone">
+            <a href="tel:+27603912081">060 391 2081 : MR MKHABELE</a>
+          </div>
+          
+          <div class="contact-item">
+            <img src="https://img.icons8.com/ios-filled/24/000000/phone.png" alt="Phone">
+            <a href="tel:+27786880676">078 688 0676 : MR MALATJIE</a>
+          </div>
+         
+          <a href="https://wa.me/27603912081" target="_blank" class="whatsapp">
+            <img src="https://img.icons8.com/ios-filled/20/ffffff/whatsapp.png" alt="WhatsApp">
+            WhatsApp Us
+          </a>
+
+          <a href="https://www.facebook.com/groups/700451109987762" target="_blank" class="facebook">
+            <img src="https://img.icons8.com/ios-filled/20/ffffff/facebook-new.png" alt="Facebook">
+            Facebook Page
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Lulekani Church Of Christ. All rights reserved.</p>
+    <p class="dev-sig">Designed & Developed by <a href="https://teesetso-portfolio.vercel.app" target="_blank" rel="noopener noreferrer">Teesetso</a></p>
+  </footer>
 
 </body>
 </html>
