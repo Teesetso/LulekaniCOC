@@ -748,9 +748,89 @@ footer p {
   .nav-links li a {
     font-size: 13px; /* Slightly smaller text only when screen space is tight */
   }
+   
+}
+footer {
+  margin-top: 60px;
+  padding: 30px 20px;
+  background: #090d16;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
 }
 
+footer p {
+  color: #64748b;
+  font-size: 14px;
+  margin: 4px 0;
+}
 
+footer .dev-sig {
+  font-size: 12px;
+  color: #475569;
+  margin-top: 10px;
+}
 
+footer .dev-sig a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+footer .dev-sig a:hover {
+  color: #f1c40f; /* Lights up on hover */
+}
+/* Custom scrollbar styling for modern browsers */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a; /* Deep slate background matching the design theme */
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 5px;
+  border: 2px solid #0f172a; /* Creates a clean gap effect */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(241, 196, 15, 0.6); /* Fades into a muted yellow on drag hover */
+}
+.hero-card-center { /* Use whatever class name you gave this center dark box */
+  background: rgba(15, 23, 42, 0.55); /* Translucent dark slate */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08); /* Crisp, ultra-thin border */
+  border-left: 4px solid #f1c40f; /* Keeps your signature yellow accent line */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  border-radius: 16px;
+  padding: 35px;
+  transition: transform 0.3s ease;
+}
+.nav-links li a {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 10px; /* Aligns with text padding */
+  background-color: #f1c40f; /* Your accent yellow */
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #ffffff;
+}
+
+.nav-links li a:hover::after {
+  width: calc(100% - 20px); /* Expands cleanly outward to match the link text width */
+}
 
 
