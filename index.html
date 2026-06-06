@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Church Of Christ</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- Added professional Google Font (Poppins & Inter) for cleaner layout -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -53,7 +57,7 @@
   <main>
     <!-- Services Section: Fixed nesting to match flexbox CSS -->
     <section id="service" class="services-section">
-      <div class="service-head" style="width: 100%; text-align: center; margin-bottom: 20px;">
+      <div class="service-head">
         <h1>Service Days:</h1>
       </div>
 
@@ -86,12 +90,12 @@
         <p class="time">Friday at 5:00 PM</p>
       </div>
     </section>
+    
     <!-- About Section -->
     <section id="about-section" class="about-section">
-     
-      <div class="about-header" style="color: red;">
-    <h1>About Us — Church of Christ</h1>
-    <p>Learn more about who we are, what we believe, and our purpose as a congregation of God's people.</p>
+      <div class="about-header">
+        <h1>About Us — Church of Christ</h1>
+        <p class="about-subtitle">Learn more about who we are, what we believe, and our purpose as a congregation of God's people.</p>
       </div>
 
       <div class="about-content">
@@ -127,7 +131,7 @@
             <li>Serve our community with love and compassion</li>
             <li>Glorify God in everything we do</li>
           </ul>
-          <p>Our goal is to help people grow spiritually and become faithful followers of Christ.</p>
+          <p class="mission-footer">Our goal is to help people grow spiritually and become faithful followers of Christ.</p>
         </div>
 
         <!-- VISION -->
@@ -163,7 +167,7 @@
         <h1>Contact Us</h1>
       </div>
       
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 20px;">
+      <div class="contact-container">
         <div class="contact-item">
           <img src="https://img.icons8.com/ios-filled/24/000000/phone.png" alt="Phone">
           <a href="tel:+27786880676">078 688 0676: MR MALATJIE</a>
@@ -188,11 +192,11 @@
   </main>
 
   <!-- Footer with Developer Signature -->
-  <footer style="text-align: center; padding: 40px 20px; font-family: Arial, sans-serif; color: #777; font-size: 13px; line-height: 1.6;">
+  <footer>
     <p>© 2025 Lulekani Church Of Christ. All rights reserved.</p>
-    <p style="font-size: 11px; color: #999; margin-top: 6px;">
+    <p class="dev-sig">
       Designed & Developed by 
-      <a href="https://teesetso-portfolio.vercel.app" target="_blank" rel="noopener noreferrer" style="color: #666; text-decoration: underline; font-weight: bold; transition: color 0.2s;">
+      <a href="https://teesetso-portfolio.vercel.app" target="_blank" rel="noopener noreferrer">
         Teesetso
       </a>
     </p>
@@ -201,7 +205,6 @@
   <script src="main.js"></script>
 </body>
 </html>
-
 
 
 
