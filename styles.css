@@ -634,6 +634,83 @@ footer p {
   color: #f1c40f;
   border-bottom-color: #f1c40f;
 }
+/* --------------------------------------------------
+   LOCATION PAGE SPECIFIC EXTENSIONS 
+-------------------------------------------------- */
+.location-body {
+  background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.75)), url("picture/back.jpg") center/cover no-repeat fixed;
+}
+
+.loc-subtext {
+  color: #cbd5e1;
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+.location-info h3 {
+  font-size: 18px;
+  color: #f1c40f;
+  margin-bottom: 15px;
+}
+
+.map-container {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  margin-bottom: 20px;
+}
+
+/* Services section inside the location card */
+.location-services {
+  margin-top: 50px;
+  padding: 0;
+}
+
+.location-services h2 {
+  color: white;
+  font-size: 26px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.location-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Contact Block Inside Card overrides */
+.location-contact {
+  margin-top: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  padding: 30px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.location-contact h3 {
+  color: white;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+/* Responsive updates for small screens */
+@media (max-width: 768px) {
+  .location-full {
+    padding: 100px 15px 40px;
+  }
+  
+  .location-card {
+    padding: 25px 15px;
+  }
+  
+  .location-services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 
 
