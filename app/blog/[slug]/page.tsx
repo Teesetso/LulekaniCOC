@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import { blogPosts } from "@/lib/data";
 
-export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export default function BlogDetailPage({ params }: { params: { slug: string } }) {
+  const { slug } = params;
   const post = blogPosts.find((entry) => entry.slug === slug);
 
   if (!post) {
