@@ -87,7 +87,7 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "Church",
             name: "Lulekani Church of Christ",
-            url: "https://lulekanicoc.org",
+            url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://lulekanicoc.org",
           }),
         }}
       />
