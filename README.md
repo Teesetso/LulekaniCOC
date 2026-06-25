@@ -16,7 +16,7 @@ Modern Next.js 16 + TypeScript + Tailwind v4 church platform with:
 
 ```bash
 npm install
-cp .env.example .env.local
+# Create .env.local (see "Environment" section below)
 npm run dev
 ```
 
