@@ -6,7 +6,7 @@ export function OPTIONS() {
 }
 
 export async function POST(request: NextRequest) {
-  const ip = request.headers.get("x-forwarded-for") ?? "local";
+  const ip = (request.headers.get("x-forwarded-for") ?? "local").split(",")[0]?.trim() || "local";
   if (isRateLimited(`prayer:${ip}`)) {
     return applyCors(NextResponse.json({ error: "Too many requests" }, { status: 429 }));
   }
